@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace RonBooker.ViewModels
 {
-    public class CustomerViewModel
+    public class MemberViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -26,13 +26,13 @@ namespace RonBooker.ViewModels
         public string City { get; set; }
         public string Gender { get; set; }
 
-        public ICollection<OrderViewModel> Orders { get; set; }
+        public ICollection<BookingViewModel> Orders { get; set; }
     }
 
 
 
 
-    public class CustomerViewModelValidator : AbstractValidator<CustomerViewModel>
+    public class CustomerViewModelValidator : AbstractValidator<MemberViewModel>
     {
         public CustomerViewModelValidator()
         {

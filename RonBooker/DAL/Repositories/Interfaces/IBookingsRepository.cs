@@ -13,7 +13,7 @@ using System.Linq;
 
 namespace DAL.Repositories.Interfaces
 {
-    public interface IOrdersRepository : IRepository<Order>
+    public interface IBookingsRepository : IRepository<Booking>
     {
 
     }

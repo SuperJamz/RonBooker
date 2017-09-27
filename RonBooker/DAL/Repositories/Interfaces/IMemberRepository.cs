@@ -13,9 +13,9 @@ using System.Linq;
 
 namespace DAL.Repositories.Interfaces
 {
-    public interface ICustomerRepository : IRepository<Customer>
+    public interface IMemberRepository : IRepository<Member>
     {
-        IEnumerable<Customer> GetTopActiveCustomers(int count);
-        IEnumerable<Customer> GetAllCustomersData();
+        IEnumerable<Member> GetTopActiveCustomers(int count);
+        IEnumerable<Member> GetAllCustomersData();
     }
 }

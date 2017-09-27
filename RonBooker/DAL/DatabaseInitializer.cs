@@ -67,7 +67,7 @@ namespace DAL
             {
                 _logger.LogInformation("Seeding initial data");
 
-                Customer cust_1 = new Customer
+                Member cust_1 = new Member
                 {
                     Name = "Ebenezer Monney",
                     Email = "contact@ebenmonney.com",
@@ -76,7 +76,7 @@ namespace DAL
                     DateModified = DateTime.UtcNow
                 };
 
-                Customer cust_2 = new Customer
+                Member cust_2 = new Member
                 {
                     Name = "Itachi Uchiha",
                     Email = "uchiha@narutoverse.com",
@@ -88,7 +88,7 @@ namespace DAL
                     DateModified = DateTime.UtcNow
                 };
 
-                Customer cust_3 = new Customer
+                Member cust_3 = new Member
                 {
                     Name = "John Doe",
                     Email = "johndoe@anonymous.com",
@@ -101,7 +101,7 @@ namespace DAL
                     DateModified = DateTime.UtcNow
                 };
 
-                Customer cust_4 = new Customer
+                Member cust_4 = new Member
                 {
                     Name = "Jane Doe",
                     Email = "Janedoe@anonymous.com",
@@ -154,11 +154,11 @@ namespace DAL
 
 
 
-                Order ordr_1 = new Order
+                Booking ordr_1 = new Booking
                 {
                     Discount = 500,
-                    Cashier = await _context.Users.FirstAsync(),
-                    Customer = cust_1,
+                    User = await _context.Users.FirstAsync(),
+                    Member = cust_1,
                     DateCreated = DateTime.UtcNow,
                     DateModified = DateTime.UtcNow,
                     OrderDetails = new List<OrderDetail>()
@@ -168,10 +168,10 @@ namespace DAL
                     }
                 };
 
-                Order ordr_2 = new Order
+                Booking ordr_2 = new Booking
                 {
-                    Cashier = await _context.Users.FirstAsync(),
-                    Customer = cust_2,
+                    User = await _context.Users.FirstAsync(),
+                    Member = cust_2,
                     DateCreated = DateTime.UtcNow,
                     DateModified = DateTime.UtcNow,
                     OrderDetails = new List<OrderDetail>()

@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class Customer : AuditableEntity
+    public class Member : AuditableEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -28,6 +28,6 @@ namespace DAL.Models
         public DateTime DateModified { get; set; }
 
 
-        public ICollection<Order> Orders { get; set; }
+        public ICollection<Booking> Bookings { get; set; }
     }
 }

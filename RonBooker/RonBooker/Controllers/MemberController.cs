@@ -21,13 +21,13 @@ using RonBooker.Helpers;
 namespace RonBooker.Controllers
 {
     [Route("api/[controller]")]
-    public class CustomerController : Controller
+    public class MemberController : Controller
     {
         private IUnitOfWork _unitOfWork;
         readonly ILogger _logger;
 
 
-        public CustomerController(IUnitOfWork unitOfWork, ILogger<CustomerController> logger)
+        public MemberController(IUnitOfWork unitOfWork, ILogger<MemberController> logger)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
@@ -39,14 +39,14 @@ namespace RonBooker.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var allCustomers = _unitOfWork.Customers.GetAllCustomersData();
-            return Ok(Mapper.Map<IEnumerable<CustomerViewModel>>(allCustomers));
+            var allMembers = _unitOfWork.Members.GetAllCustomersData();
+            return Ok(Mapper.Map<IEnumerable<MemberViewModel>>(allMembers));
         }
 
 
 
         [HttpGet("throw")]
-        public IEnumerable<CustomerViewModel> Throw()
+        public IEnumerable<MemberViewModel> Throw()
         {
             throw new InvalidOperationException("This is a test exception: " + DateTime.Now);
         }

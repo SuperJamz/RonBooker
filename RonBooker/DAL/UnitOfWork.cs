@@ -20,9 +20,9 @@ namespace DAL
     {
         readonly ApplicationDbContext _context;
 
-        ICustomerRepository _customers;
+        IMemberRepository _members;
         IProductRepository _products;
-        IOrdersRepository _orders;
+        IBookingsRepository _bookings;
 
 
 
@@ -33,14 +33,14 @@ namespace DAL
 
 
 
-        public ICustomerRepository Customers
+        public IMemberRepository Members
         {
             get
             {
-                if (_customers == null)
-                    _customers = new CustomerRepository(_context);
+                if (_members == null)
+                    _members = new MemberRepository(_context);
 
-                return _customers;
+                return _members;
             }
         }
 
@@ -59,14 +59,14 @@ namespace DAL
 
 
 
-        public IOrdersRepository Orders
+        public IBookingsRepository Bookings
         {
             get
             {
-                if (_orders == null)
-                    _orders = new OrdersRepository(_context);
+                if (_bookings == null)
+                    _bookings = new BookingsRepository(_context);
 
-                return _orders;
+                return _bookings;
             }
         }
 

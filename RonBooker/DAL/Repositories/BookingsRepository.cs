@@ -17,9 +17,9 @@ using DAL.Repositories.Interfaces;
 
 namespace DAL.Repositories
 {
-    public class OrdersRepository : Repository<Order>, IOrdersRepository
+    public class BookingsRepository : Repository<Booking>, IBookingsRepository
     {
-        public OrdersRepository(DbContext context) : base(context)
+        public BookingsRepository(DbContext context) : base(context)
         { }
 
 

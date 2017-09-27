@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace RonBooker.ViewModels
 {
-    public class OrderViewModel
+    public class BookingViewModel
     {
         public int Id { get; set; }
         public decimal Discount { get; set; }

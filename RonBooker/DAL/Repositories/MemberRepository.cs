@@ -17,23 +17,23 @@ using DAL.Repositories.Interfaces;
 
 namespace DAL.Repositories
 {
-    public class CustomerRepository : Repository<Customer>, ICustomerRepository
+    public class MemberRepository : Repository<Member>, IMemberRepository
     {
-        public CustomerRepository(ApplicationDbContext context) : base(context)
+        public MemberRepository(ApplicationDbContext context) : base(context)
         { }
 
 
-        public IEnumerable<Customer> GetTopActiveCustomers(int count)
+        public IEnumerable<Member> GetTopActiveCustomers(int count)
         {
             throw new NotImplementedException();
         }
 
 
-        public IEnumerable<Customer> GetAllCustomersData()
+        public IEnumerable<Member> GetAllCustomersData()
         {
             return appContext.Customers
-                .Include(c => c.Orders).ThenInclude(o => o.OrderDetails).ThenInclude(d => d.Product)
-                .Include(c => c.Orders).ThenInclude(o => o.Cashier)
+                .Include(c => c.Bookings).ThenInclude(o => o.OrderDetails).ThenInclude(d => d.Product)
+                .Include(c => c.Bookings).ThenInclude(o => o.User)
                 .OrderBy(c => c.Name)
                 .ToList();
         }

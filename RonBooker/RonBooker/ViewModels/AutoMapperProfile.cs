@@ -52,13 +52,13 @@ namespace RonBooker.ViewModels
             CreateMap<IdentityRoleClaim<string>, PermissionViewModel>()
                 .ConvertUsing(s => Mapper.Map<PermissionViewModel>(ApplicationPermissions.GetPermissionByValue(s.ClaimValue)));
 
-            CreateMap<Customer, CustomerViewModel>()
+            CreateMap<Member, MemberViewModel>()
                 .ReverseMap();
 
             CreateMap<Product, ProductViewModel>()
                 .ReverseMap();
 
-            CreateMap<Order, OrderViewModel>()
+            CreateMap<Booking, BookingViewModel>()
                 .ReverseMap();
         }
     }

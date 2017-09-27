@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class Order : AuditableEntity
+    public class Booking : AuditableEntity
     {
         public int Id { get; set; }
         public decimal Discount { get; set; }
@@ -23,11 +23,11 @@ namespace DAL.Models
         public DateTime DateModified { get; set; }
 
 
-        public string CashierId { get; set; }
-        public ApplicationUser Cashier { get; set; }
+        public string UserId { get; set; }
+        public ApplicationUser User { get; set; }
 
-        public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
+        public int MemberId { get; set; }
+        public Member Member { get; set; }
 
 
         public ICollection<OrderDetail> OrderDetails { get; set; }

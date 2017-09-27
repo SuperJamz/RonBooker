@@ -17,9 +17,9 @@ namespace DAL
 {
     public interface IUnitOfWork
     {
-        ICustomerRepository Customers { get; }
+        IMemberRepository Members { get; }
         IProductRepository Products { get; }
-        IOrdersRepository Orders { get; }
+        IBookingsRepository Bookings { get; }
 
 
         int SaveChanges();

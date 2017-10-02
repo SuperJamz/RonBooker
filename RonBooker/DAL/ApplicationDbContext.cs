@@ -24,8 +24,8 @@ namespace DAL
         public string CurrentUserId { get; set; }
         public DbSet<Member> Customers { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Booking> Orders { get; set; }
+        public DbSet<SportFacility> SportFacilities { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
 
 
@@ -55,15 +55,15 @@ namespace DAL
             builder.Entity<ProductCategory>().Property(p => p.Description).HasMaxLength(500);
             builder.Entity<ProductCategory>().ToTable($"App{nameof(this.ProductCategories)}");
 
-            builder.Entity<Product>().Property(p => p.Name).IsRequired().HasMaxLength(100);
-            builder.Entity<Product>().HasIndex(p => p.Name);
-            builder.Entity<Product>().Property(p => p.Description).HasMaxLength(500);
-            builder.Entity<Product>().Property(p => p.Icon).IsUnicode(false).HasMaxLength(256);
-            builder.Entity<Product>().HasOne(p => p.Parent).WithMany(p => p.Children).OnDelete(DeleteBehavior.Restrict);
-            builder.Entity<Product>().ToTable($"App{nameof(this.Products)}");
+            builder.Entity<SportFacility>().Property(p => p.Name).IsRequired().HasMaxLength(100);
+            builder.Entity<SportFacility>().HasIndex(p => p.Name);
+            builder.Entity<SportFacility>().Property(p => p.Description).HasMaxLength(500);
+            builder.Entity<SportFacility>().Property(p => p.Icon).IsUnicode(false).HasMaxLength(256);
+            builder.Entity<SportFacility>().HasOne(p => p.Parent).WithMany(p => p.Children).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<SportFacility>().ToTable($"App{nameof(this.SportFacilities)}");
 
             builder.Entity<Booking>().Property(o => o.Comments).HasMaxLength(500);
-            builder.Entity<Booking>().ToTable($"App{nameof(this.Orders)}");
+            builder.Entity<Booking>().ToTable($"App{nameof(this.Bookings)}");
 
             builder.Entity<OrderDetail>().ToTable($"App{nameof(this.OrderDetails)}");
         }

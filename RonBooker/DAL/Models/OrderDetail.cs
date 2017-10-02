@@ -19,8 +19,8 @@ namespace DAL.Models
         public decimal Discount { get; set; }
 
 
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
+        public int SportFacilityId { get; set; }
+        public SportFacility SportFacility { get; set; }
 
         public int OrderId { get; set; }
         public Booking Order { get; set; }

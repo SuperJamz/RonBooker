@@ -17,9 +17,9 @@ using DAL.Repositories.Interfaces;
 
 namespace DAL.Repositories
 {
-    public class ProductRepository : Repository<Product>, IProductRepository
+    public class SportFacilityRepository : Repository<SportFacility>, ISportFacilityRepository
     {
-        public ProductRepository(DbContext context) : base(context)
+        public SportFacilityRepository(DbContext context) : base(context)
         { }
 
 

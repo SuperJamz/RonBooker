@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Models
 {
-    public class Product : AuditableEntity
+    public class SportFacility : AuditableEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -30,13 +30,13 @@ namespace DAL.Models
         public DateTime DateModified { get; set; }
 
 
-        public int? ParentId { get; set; }
-        public Product Parent { get; set; }
+        public int? SportFacilityId { get; set; }
+        public SportFacility Parent { get; set; }
 
         public int ProductCategoryId { get; set; }
         public ProductCategory ProductCategory { get; set; }
 
-        public ICollection<Product> Children { get; set; }
+        public ICollection<SportFacility> Children { get; set; }
         public ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

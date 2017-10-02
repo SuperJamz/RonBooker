@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace RonBooker.ViewModels
 {
-    public class ProductViewModel
+    public class SportFacilityViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

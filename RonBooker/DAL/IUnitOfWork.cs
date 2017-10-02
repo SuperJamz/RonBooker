@@ -18,7 +18,7 @@ namespace DAL
     public interface IUnitOfWork
     {
         IMemberRepository Members { get; }
-        IProductRepository Products { get; }
+        ISportFacilityRepository SportFacilities { get; }
         IBookingsRepository Bookings { get; }
 
 

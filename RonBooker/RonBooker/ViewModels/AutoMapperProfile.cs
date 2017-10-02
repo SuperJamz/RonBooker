@@ -55,7 +55,7 @@ namespace RonBooker.ViewModels
             CreateMap<Member, MemberViewModel>()
                 .ReverseMap();
 
-            CreateMap<Product, ProductViewModel>()
+            CreateMap<SportFacility, SportFacilityViewModel>()
                 .ReverseMap();
 
             CreateMap<Booking, BookingViewModel>()

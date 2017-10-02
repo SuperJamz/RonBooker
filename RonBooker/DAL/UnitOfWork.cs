@@ -21,7 +21,7 @@ namespace DAL
         readonly ApplicationDbContext _context;
 
         IMemberRepository _members;
-        IProductRepository _products;
+        ISportFacilityRepository _sportfacilities;
         IBookingsRepository _bookings;
 
 
@@ -46,14 +46,14 @@ namespace DAL
 
 
 
-        public IProductRepository Products
+        public ISportFacilityRepository SportFacilities
         {
             get
             {
-                if (_products == null)
-                    _products = new ProductRepository(_context);
+                if (_sportfacilities == null)
+                    _sportfacilities = new SportFacilityRepository(_context);
 
-                return _products;
+                return _sportfacilities;
             }
         }
 

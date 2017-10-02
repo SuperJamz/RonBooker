@@ -126,7 +126,7 @@ namespace DAL
 
 
 
-                Product prod_1 = new Product
+                SportFacility prod_1 = new SportFacility
                 {
                     Name = "BMW M6",
                     Description = "Yet another masterpiece from the world's best car manufacturer",
@@ -139,7 +139,7 @@ namespace DAL
                     DateModified = DateTime.UtcNow
                 };
 
-                Product prod_2 = new Product
+                SportFacility prod_2 = new SportFacility
                 {
                     Name = "Nissan Patrol",
                     Description = "A true man's choice",
@@ -163,8 +163,8 @@ namespace DAL
                     DateModified = DateTime.UtcNow,
                     OrderDetails = new List<OrderDetail>()
                     {
-                        new OrderDetail() {UnitPrice = prod_1.SellingPrice, Quantity=1, Product = prod_1 },
-                        new OrderDetail() {UnitPrice = prod_2.SellingPrice, Quantity=1, Product = prod_2 },
+                        new OrderDetail() {UnitPrice = prod_1.SellingPrice, Quantity=1, SportFacility = prod_1 },
+                        new OrderDetail() {UnitPrice = prod_2.SellingPrice, Quantity=1, SportFacility = prod_2 },
                     }
                 };
 
@@ -176,7 +176,7 @@ namespace DAL
                     DateModified = DateTime.UtcNow,
                     OrderDetails = new List<OrderDetail>()
                     {
-                        new OrderDetail() {UnitPrice = prod_2.SellingPrice, Quantity=1, Product = prod_2 },
+                        new OrderDetail() {UnitPrice = prod_2.SellingPrice, Quantity=1, SportFacility = prod_2 },
                     }
                 };
 
@@ -186,11 +186,11 @@ namespace DAL
                 _context.Customers.Add(cust_3);
                 _context.Customers.Add(cust_4);
 
-                _context.Products.Add(prod_1);
-                _context.Products.Add(prod_2);
+                _context.SportFacilities.Add(prod_1);
+                _context.SportFacilities.Add(prod_2);
 
-                _context.Orders.Add(ordr_1);
-                _context.Orders.Add(ordr_2);
+                _context.Bookings.Add(ordr_1);
+                _context.Bookings.Add(ordr_2);
 
                 await _context.SaveChangesAsync();
 

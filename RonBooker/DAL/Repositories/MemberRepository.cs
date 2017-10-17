@@ -31,7 +31,7 @@ namespace DAL.Repositories
 
         public IEnumerable<Member> GetAllCustomersData()
         {
-            return appContext.Customers
+            return appContext.Members
                 .Include(c => c.Bookings).ThenInclude(o => o.OrderDetails).ThenInclude(d => d.SportFacility)
                 .Include(c => c.Bookings).ThenInclude(o => o.User)
                 .OrderBy(c => c.Name)

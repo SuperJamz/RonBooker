@@ -22,7 +22,7 @@ namespace DAL
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         public string CurrentUserId { get; set; }
-        public DbSet<Member> Customers { get; set; }
+        public DbSet<Member> Members { get; set; }
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<SportFacility> SportFacilities { get; set; }
         public DbSet<Booking> Bookings { get; set; }
@@ -49,23 +49,23 @@ namespace DAL
             builder.Entity<Member>().Property(c => c.Email).HasMaxLength(100);
             builder.Entity<Member>().Property(c => c.PhoneNumber).IsUnicode(false).HasMaxLength(30);
             builder.Entity<Member>().Property(c => c.City).HasMaxLength(50);
-            builder.Entity<Member>().ToTable($"App{nameof(this.Customers)}");
+            builder.Entity<Member>().ToTable(nameof(this.Members));
 
             builder.Entity<ProductCategory>().Property(p => p.Name).IsRequired().HasMaxLength(100);
             builder.Entity<ProductCategory>().Property(p => p.Description).HasMaxLength(500);
-            builder.Entity<ProductCategory>().ToTable($"App{nameof(this.ProductCategories)}");
+            builder.Entity<ProductCategory>().ToTable(nameof(this.ProductCategories));
 
             builder.Entity<SportFacility>().Property(p => p.Name).IsRequired().HasMaxLength(100);
             builder.Entity<SportFacility>().HasIndex(p => p.Name);
             builder.Entity<SportFacility>().Property(p => p.Description).HasMaxLength(500);
             builder.Entity<SportFacility>().Property(p => p.Icon).IsUnicode(false).HasMaxLength(256);
-            builder.Entity<SportFacility>().HasOne(p => p.Parent).WithMany(p => p.Children).OnDelete(DeleteBehavior.Restrict);
-            builder.Entity<SportFacility>().ToTable($"App{nameof(this.SportFacilities)}");
+            //builder.Entity<SportFacility>().HasOne(p => p.Parent).WithMany(p => p.Children).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<SportFacility>().ToTable(nameof(this.SportFacilities));
 
             builder.Entity<Booking>().Property(o => o.Comments).HasMaxLength(500);
-            builder.Entity<Booking>().ToTable($"App{nameof(this.Bookings)}");
+            builder.Entity<Booking>().ToTable(nameof(this.Bookings));
 
-            builder.Entity<OrderDetail>().ToTable($"App{nameof(this.OrderDetails)}");
+            builder.Entity<OrderDetail>().ToTable(nameof(this.OrderDetails));
         }
 
 

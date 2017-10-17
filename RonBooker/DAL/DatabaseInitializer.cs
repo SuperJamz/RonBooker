@@ -63,7 +63,7 @@ namespace DAL
 
 
 
-            if (!await _context.Customers.AnyAsync() && !await _context.ProductCategories.AnyAsync())
+            if (!await _context.Members.AnyAsync() && !await _context.ProductCategories.AnyAsync())
             {
                 _logger.LogInformation("Seeding initial data");
 
@@ -130,9 +130,6 @@ namespace DAL
                 {
                     Name = "BMW M6",
                     Description = "Yet another masterpiece from the world's best car manufacturer",
-                    BuyingPrice = 109775,
-                    SellingPrice = 114234,
-                    UnitsInStock = 12,
                     IsActive = true,
                     ProductCategory = prodCat_1,
                     DateCreated = DateTime.UtcNow,
@@ -143,9 +140,6 @@ namespace DAL
                 {
                     Name = "Nissan Patrol",
                     Description = "A true man's choice",
-                    BuyingPrice = 78990,
-                    SellingPrice = 86990,
-                    UnitsInStock = 4,
                     IsActive = true,
                     ProductCategory = prodCat_1,
                     DateCreated = DateTime.UtcNow,
@@ -163,8 +157,8 @@ namespace DAL
                     DateModified = DateTime.UtcNow,
                     OrderDetails = new List<OrderDetail>()
                     {
-                        new OrderDetail() {UnitPrice = prod_1.SellingPrice, Quantity=1, SportFacility = prod_1 },
-                        new OrderDetail() {UnitPrice = prod_2.SellingPrice, Quantity=1, SportFacility = prod_2 },
+                        new OrderDetail() {UnitPrice = 0, Quantity=1, SportFacility = prod_1 },
+                        new OrderDetail() {UnitPrice = 0, Quantity=1, SportFacility = prod_2 },
                     }
                 };
 
@@ -176,15 +170,15 @@ namespace DAL
                     DateModified = DateTime.UtcNow,
                     OrderDetails = new List<OrderDetail>()
                     {
-                        new OrderDetail() {UnitPrice = prod_2.SellingPrice, Quantity=1, SportFacility = prod_2 },
+                        new OrderDetail() {UnitPrice = 0, Quantity=1, SportFacility = prod_2 },
                     }
                 };
 
 
-                _context.Customers.Add(cust_1);
-                _context.Customers.Add(cust_2);
-                _context.Customers.Add(cust_3);
-                _context.Customers.Add(cust_4);
+                _context.Members.Add(cust_1);
+                _context.Members.Add(cust_2);
+                _context.Members.Add(cust_3);
+                _context.Members.Add(cust_4);
 
                 _context.SportFacilities.Add(prod_1);
                 _context.SportFacilities.Add(prod_2);
